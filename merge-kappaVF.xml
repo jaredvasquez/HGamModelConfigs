@@ -1,0 +1,51 @@
+<!DOCTYPE Organization  SYSTEM 'Organization.dtd'>
+<Organization InFile="WS-HGam-STXS.root" OutFile="WS-HGam-kappaVF.root"
+	     ModelName="HGam-kappaVF"
+       POINames="mu,kappaF,kappaV">
+
+  <Item Name="kappaF[1,-5,5]"/>
+  <Item Name="kappaV[1,-5,5]"/>
+  <Item Name="one[1]"/>
+
+  <!-- PDF -->
+  <Item Name="EDIT::NEWPDF(OLDPDF,
+        mu_gg2H_VBFtopo_jet3veto=kappaF,
+        mu_gg2H_VBFtopo_jet3=kappaF,
+        mu_gg2H_0J=kappaF,
+        mu_gg2H_1J_ptH_0_60=kappaF,
+        mu_gg2H_1J_ptH_60_120=kappaF,
+        mu_gg2H_1J_ptH_120_200=kappaF,
+        mu_gg2H_1J_ptH_gt200=kappaF,
+        mu_gg2H_ge2J_ptH_0_60=kappaF,
+        mu_gg2H_ge2J_ptH_60_120=kappaF,
+        mu_gg2H_ge2J_ptH_120_200=kappaF,
+        mu_gg2H_ge2J_ptH_gt200=kappaF,
+        mu_VBF_qq2Hqq_VBFtopo_jet3veto=kappaV,
+        mu_VBF_qq2Hqq_VBFtopo_jet3=kappaV,
+        mu_VBF_qq2Hqq_VH2jet=kappaV,
+        mu_VBF_qq2Hqq_rest=kappaV,
+        mu_VBF_qq2Hqq_pTjet1_gt200=kappaV,
+        mu_WH_qq2Hqq_VBFtopo_jet3veto=kappaV,
+        mu_WH_qq2Hqq_VBFtopo_jet3=kappaV,
+        mu_WH_qq2Hqq_VH2jet=kappaV,
+        mu_WH_qq2Hqq_rest=kappaV,
+        mu_WH_qq2Hqq_pTjet1_gt200=kappaV,
+        mu_ZH_qq2Hqq_VBFtopo_jet3veto=kappaV,
+        mu_ZH_qq2Hqq_VBFtopo_jet3=kappaV,
+        mu_ZH_qq2Hqq_VH2jet=kappaV,
+        mu_ZH_qq2Hqq_rest=kappaV,
+        mu_ZH_qq2Hqq_pTjet1_gt200=kappaV,
+        mu_qq2Hlnu_pTV_0_150=kappaV,
+        mu_qq2Hlnu_pTV_150_250_0J=kappaV,
+        mu_qq2Hlnu_pTV_150_250_ge1J=kappaV,
+        mu_qq2Hlnu_pTV_gt250=kappaV,
+        mu_qq2Hll_pTV_0_150=kappaV,
+        mu_qq2Hll_pTV_150_250_0J=kappaV,
+        mu_qq2Hll_pTV_150_250_ge1J=kappaV,
+        mu_qq2Hll_pTV_gt25=kappaV,
+        mu_ttH=kappaF,
+        mu_bbH=kappaF,
+        mu_tHqb=one,
+        mu_tHW=one,
+        mu=mu)"/>
+</Organization>

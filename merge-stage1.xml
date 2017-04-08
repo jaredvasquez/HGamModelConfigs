@@ -1,0 +1,73 @@
+<!DOCTYPE Organization  SYSTEM 'Organization.dtd'>
+<Organization InFile="WS-HGam-STXS.root" OutFile="WS-HGam-STXSMerged.root"
+	     ModelName="HGam-STXSMerged"
+       POINames="mu,mu_gg2H_VBFTOPO,mu_gg2H_0J,mu_gg2H_1J_ptH_0_60,mu_gg2H_1J_ptH_60_120,mu_gg2H_1J_ptH_120_200,mu_gg2H_1J_ptH_gt200,mu_gg2H_ge2J_ptH_0_60,mu_gg2H_ge2J_ptH_60_120,mu_gg2H_ge2J_ptH_120_200,mu_gg2H_ge2J_ptH_gt200,mu_qq2Hqq_VBFTOPO,mu_qq2Hqq_VH2JREST,mu_qq2Hqq_pTjet1_gt200,mu_qq2Hlnu_pTV_0_150,mu_qq2Hlnu_pTV_gt150,mu_qq2Hll,mu_ttH,mu_bbH,mu_tH">
+
+  <Item Name="mu_gg2H_VBFTOPO[1,-5,5]"/>
+  <Item Name="mu_gg2H_0J[1,-5,5]"/>
+  <Item Name="mu_gg2H_1J_ptH_0_60[1,-5,5]"/>
+  <Item Name="mu_gg2H_1J_ptH_60_120[1,-5,5]"/>
+  <Item Name="mu_gg2H_1J_ptH_120_200[1,-5,5]"/>
+  <Item Name="mu_gg2H_1J_ptH_gt200[1,-5,5]"/>
+  <Item Name="mu_gg2H_ge2J_ptH_0_60[1,-5,5]"/>
+  <Item Name="mu_gg2H_ge2J_ptH_60_120[1,-5,5]"/>
+  <Item Name="mu_gg2H_ge2J_ptH_120_200[1,-5,5]"/>
+  <Item Name="mu_gg2H_ge2J_ptH_gt200[1,-5,5]"/>
+  <Item Name="mu_qq2Hqq_VBFTOPO[1,-5,5]"/>
+  <Item Name="mu_qq2Hqq_VH2JREST[1,-5,5]"/>
+  <Item Name="mu_qq2Hqq_pTjet1_gt200[1,-5,5]"/>
+  <Item Name="mu_qq2Hll[1,-5,5]"/>
+  <Item Name="mu_qq2Hlnu_pTV_0_150[1,-5,5]"/>
+  <Item Name="mu_qq2Hlnu_pTV_gt150[1,-5,5]"/>
+  <Item Name="mu_ttH[1,-5,5]"/>
+  <Item Name="mu_bbH[1]"/>
+  <Item Name="mu_tH[1]"/>
+  <!--
+  <Item Name="mu_qq2Hll_pTV_0_150[1,-5,5]"/>
+  <Item Name="mu_qq2Hll_pTV_gt150[1,-5,5]"/>
+  <Item Name="mu_tHqb[1]"/>
+  <Item Name="mu_tHW[1]"/>
+  -->
+
+  <!-- PDF -->
+  <Item Name="EDIT::NEWPDF(OLDPDF,
+        mu_gg2H_VBFtopo_jet3veto=mu_gg2H_VBFTOPO,
+        mu_gg2H_VBFtopo_jet3=mu_gg2H_VBFTOPO,
+        mu_gg2H_0J=mu_gg2H_0J,
+        mu_gg2H_1J_ptH_0_60=mu_gg2H_1J_ptH_0_60,
+        mu_gg2H_1J_ptH_60_120=mu_gg2H_1J_ptH_60_120,
+        mu_gg2H_1J_ptH_120_200=mu_gg2H_1J_ptH_120_200,
+        mu_gg2H_1J_ptH_gt200=mu_gg2H_1J_ptH_gt200,
+        mu_gg2H_ge2J_ptH_0_60=mu_gg2H_ge2J_ptH_0_60,
+        mu_gg2H_ge2J_ptH_60_120=mu_gg2H_ge2J_ptH_60_120,
+        mu_gg2H_ge2J_ptH_120_200=mu_gg2H_ge2J_ptH_120_200,
+        mu_gg2H_ge2J_ptH_gt200=mu_gg2H_ge2J_ptH_gt200,
+        mu_VBF_qq2Hqq_VBFtopo_jet3veto=mu_qq2Hqq_VBFTOPO,
+        mu_VBF_qq2Hqq_VBFtopo_jet3=mu_qq2Hqq_VBFTOPO,
+        mu_VBF_qq2Hqq_VH2jet=mu_qq2Hqq_VH2JREST,
+        mu_VBF_qq2Hqq_rest=mu_qq2Hqq_VH2JREST,
+        mu_VBF_qq2Hqq_pTjet1_gt200=mu_qq2Hqq_pTjet1_gt200,
+        mu_WH_qq2Hqq_VBFtopo_jet3veto=mu_qq2Hqq_VBFTOPO,
+        mu_WH_qq2Hqq_VBFtopo_jet3=mu_qq2Hqq_VBFTOPO,
+        mu_WH_qq2Hqq_VH2jet=mu_qq2Hqq_VH2JREST,
+        mu_WH_qq2Hqq_rest=mu_qq2Hqq_VH2JREST,
+        mu_WH_qq2Hqq_pTjet1_gt200=mu_qq2Hqq_pTjet1_gt200,
+        mu_ZH_qq2Hqq_VBFtopo_jet3veto=mu_qq2Hqq_VBFTOPO,
+        mu_ZH_qq2Hqq_VBFtopo_jet3=mu_qq2Hqq_VBFTOPO,
+        mu_ZH_qq2Hqq_VH2jet=mu_qq2Hqq_VH2JREST,
+        mu_ZH_qq2Hqq_rest=mu_qq2Hqq_VH2JREST,
+        mu_ZH_qq2Hqq_pTjet1_gt200=mu_qq2Hqq_pTjet1_gt200,
+        mu_qq2Hlnu_pTV_0_150=mu_qq2Hlnu_pTV_0_150,
+        mu_qq2Hlnu_pTV_150_250_0J=mu_qq2Hlnu_pTV_gt150,
+        mu_qq2Hlnu_pTV_150_250_ge1J=mu_qq2Hlnu_pTV_gt150,
+        mu_qq2Hlnu_pTV_gt250=mu_qq2Hlnu_pTV_gt150,
+        mu_qq2Hll_pTV_0_150=mu_qq2Hll,
+        mu_qq2Hll_pTV_150_250_0J=mu_qq2Hll,
+        mu_qq2Hll_pTV_150_250_ge1J=mu_qq2Hll,
+        mu_qq2Hll_pTV_gt250=mu_qq2Hll,
+        mu_ttH=mu_ttH,
+        mu_bbH=mu_bbH,
+        mu_tHqb=mu_tH,
+        mu_tHW=mu_tH,
+        mu=mu)"/>
+</Organization>

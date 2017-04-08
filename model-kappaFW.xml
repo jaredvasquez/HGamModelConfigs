@@ -1,0 +1,117 @@
+<!DOCTYPE Organization  SYSTEM 'Organization.dtd'>
+<Organization 
+       InFile    = "WS-HGam-STXS.root" 
+       OutFile   = "WS-HGam-Kappa.root"
+	     ModelName = "CWCZCbCtaCto"
+       POINames  = "CW,CZ,Cb,CT"  >
+
+  <!-- **** Missing Cc and Cm from BR **** --> 
+
+  <Item Name="CW[1,-100,100]"/>
+  <Item Name="CZ[1,-100,100]"/>
+  <Item Name="Cb[1]"/>
+  <Item Name="Cc[1]"/>
+  <Item Name="Cm[1]"/>
+  <Item Name="Cta[1]"/>
+  <Item Name="CT[1,-100,100]"/>
+  <Item Name="one[1]"/>
+  <Item Name="pluone[+1]"/>
+  <Item Name="onehalf[0.5]"/>
+  <Item Name="onesixth[0.16667]"/>
+
+  <Item Name="expr::Cto('@0*@1', CT, pluone)"/>
+
+  <!-- PRODUCTION -->
+  <!-- gluglu->H, 13TeV -->
+  <Item Name="expr::C2_GlGlH_13TeV('(@0*@0)*@3  + (@1*@1)*@4 + (@0*@1)*@5 + (@0*@2)*@6 + (@1*@2)*@7 + (@2*@2)*@8', Cto, Cb, Cc, sigma_tt_o_sigma_ggH_GlGlH_13TeV[1.042],sigma_bb_o_sigma_ggH_GlGlH_13TeV[0.0020],sigma_tb_o_sigma_ggH_GlGlH_13TeV[-0.0400],sigma_tc_o_sigma_ggH_GlGlH_13TeV[-0.0050],sigma_bc_o_sigma_ggH_GlGlH_13TeV[0.0005],sigma_cc_o_sigma_ggH_GlGlH_13TeV[0.00002])"/>
+  <!-- VBF->H, 13TeV -->
+  <Item Name="expr::C2_VBFH_13TeV('((@0*@0)*@2  + (@1*@1)*@3)', CZ, CW, CZFracVBF_13TeV[0.267],CWFracVBF_13TeV[0.733])"/>
+
+  <Item Name="expr::CW2('@0*@0',CW)"/>
+  <Item Name="expr::CZ2('@0*@0',CZ)"/>
+  <Item Name="expr::Cb2('@0*@0',Cb)"/>
+  <Item Name="expr::Cm2('@0*@0',Cm)"/>
+  <Item Name="expr::Ctau2('@0*@0',Cta)"/>
+  <Item Name="expr::Ctop2('@0*@0',Cto)"/>
+
+
+  <!-- tH xsec and efficiencies -->
+  <Item Name="xsec_13TeV_wth_sm1[0.1504]"/>
+  <Item Name="xsec_13TeV_wth_sp1[0.0250]"/>
+  <Item Name="xsec_13TeV_wth_sp2[0.0970]"/>
+
+  <Item Name="xsec_13TeV_thjb_sm1[0.732]"/>
+  <Item Name="xsec_13TeV_thjb_sp1[0.07425]"/>
+  <Item Name="xsec_13TeV_thjb_sp2[0.2685]"/>
+
+  <Item Name="eff_13TeV_wth_sm1[0.177028]"/>
+  <Item Name="eff_13TeV_wth_sp1[0.216165]"/>
+  <Item Name="eff_13TeV_wth_sp2[0.148953]"/>
+
+  <Item Name="eff_13TeV_thjb_sm1[0.066019]"/>
+  <Item Name="eff_13TeV_thjb_sp1[0.050230]"/>
+  <Item Name="eff_13TeV_thjb_sp2[0.070027]"/>
+
+  <Item Name="expr::wt_tH_sm1('((@0*@0)+(2*@1*@1)-(3*@0*@1))*@2',Cto,CW,onesixth)"/>
+  <Item Name="expr::wt_tH_sp1('((2*@1*@1)-(@0*@0)+(@0*@1))*@2',Cto,CW,onehalf)"/>
+  <Item Name="expr::wt_tH_sp2('((2*@0*@0)-(2*@1*@1))*@2',Cto,CW,onesixth)"/>
+
+  <Item Name="expr::C2_13TeV_tHjb('((@0*@3*@6)  + (@1*@4*@7) + (@2*@5*@8))/(@4*@7)', wt_tH_sm1, wt_tH_sp1, wt_tH_sp2, xsec_13TeV_thjb_sm1, xsec_13TeV_thjb_sp1, xsec_13TeV_thjb_sp2, eff_13TeV_thjb_sm1, eff_13TeV_thjb_sp1, eff_13TeV_thjb_sp2)"/>
+  
+  <Item Name="expr::C2_13TeV_WtH('((@0*@3*@6)  + (@1*@4*@7) + (@2*@5*@8))/(@4*@7)', wt_tH_sm1, wt_tH_sp1, wt_tH_sp2, xsec_13TeV_thjb_sm1, xsec_13TeV_thjb_sp1, xsec_13TeV_thjb_sp2, eff_13TeV_thjb_sm1, eff_13TeV_thjb_sp1, eff_13TeV_thjb_sp2)"/>
+  
+  <!-- DECAY -->
+  <!-- H->gamgam -->
+  <Item Name="expr::C2_HGaGa('(@0*@0)*@4 + (@1*@1)*@5 + (@2*@2)*@6 + (@0*@1)*@7 + (@0*@2)*@8 + (@1*@2)*@9 + (@3*@3)*@10 + (@0*@3)*@11 + (@1*@3)*@12 + (@2*@3)*@13',Cto,Cb,CW,Cta,G_tt_o_G_HGaGa[0.0715],G_bb_o_G_HGaGa[0.0000],G_WW_o_G_HGaGa[1.5887],G_tb_o_G_HGaGa[-0.0018],G_tW_o_G_HGaGa[-0.6740],G_bW_o_G_HGaGa[0.0083],G_ll_o_G_HGaGa[0.0000],G_tl_o_G_HGaGa[-0.0019],G_bl_o_G_HGaGa[0.0000],G_lW_o_G_HGaGa[0.0090])"/>
+  <!-- H->Zgam -->
+  <Item Name="expr::C2_HZGa('(@0*@0)*@4 + (@1*@1)*@5 + (@2*@2)*@6 + (@0*@1)*@7 + (@0*@2)*@8 + (@1*@2)*@9 + (@3*@3)*@10 + (@0*@3)*@11 + (@1*@3)*@12 + (@2*@3)*@13',Cto,Cb,CW,Cta,G_tt_o_G_HZGa[0.0035],G_bb_o_G_HZGa[0.0000],G_WW_o_G_HZGa[1.1180],G_tb_o_G_HZGa[-0.0002],G_tW_o_G_HZGa[-0.1245],G_bW_o_G_HZGa[0.0032],G_ll_o_G_HZGa[0.0000],G_tl_o_G_HZGa[-0.0000],G_bl_o_G_HZGa[0.0000],G_lW_o_G_HZGa[0.0001])"/>
+  <!-- H->gluglu -->
+  <Item Name="expr::C2_HGlGl('(@0*@0)*@2  + (@1*@1)*@3 + (@0*@1)*@4', Cto, Cb, G_tt_o_G_gg_HGlGl[1.1114],G_bb_o_G_gg_HGlGl[0.0116],G_tb_o_G_gg_HGlGl[-0.1229])"/>
+  <!-- total width -->
+  <Item Name="expr::invC2H('1/(@0*@11 + @1*@12 + @2*@13 + @3*@14 + @4*@15 + @5*@16 + @6*@17 + @7*@17 + @8*@16 + @9*@18 + @10*@18)', BR_H_gluglu_SM[0.0850],BR_H_gamgam_SM[0.0023],BR_H_Zgam_SM[0.0016],BR_H_WW_SM[0.2240],BR_H_ZZ_SM[0.0279],BR_H_bb_SM[0.5690],BR_H_tautau_SM[0.0628],BR_H_mumu_SM[0.0002],BR_H_ssbar_SM[0.0004],BR_H_ccbar_SM[0.0264],BR_H_ttbar_SM[0.0000], C2_HGlGl, C2_HGaGa, C2_HZGa, CW2, CZ2, Cb2, Ctau2, Ctop2)"/>
+  
+  <Item Name="mu[1]"/>
+  <Item Name="prod::BRinvC2H( mu, invC2H, C2_HGaGa )"/>
+
+  <!-- PDF -->
+  <Item Name="EDIT::NEWPDF(OLDPDF,
+        mu_gg2H_VBFtopo_jet3veto=C2_GlGlH_13TeV,
+        mu_gg2H_VBFtopo_jet3=C2_GlGlH_13TeV,
+        mu_gg2H_0J=C2_GlGlH_13TeV,
+        mu_gg2H_1J_ptH_0_60=C2_GlGlH_13TeV,
+        mu_gg2H_1J_ptH_60_120=C2_GlGlH_13TeV,
+        mu_gg2H_1J_ptH_120_200=C2_GlGlH_13TeV,
+        mu_gg2H_1J_ptH_gt200=C2_GlGlH_13TeV,
+        mu_gg2H_ge2J_ptH_0_60=C2_GlGlH_13TeV,
+        mu_gg2H_ge2J_ptH_60_120=C2_GlGlH_13TeV,
+        mu_gg2H_ge2J_ptH_120_200=C2_GlGlH_13TeV,
+        mu_gg2H_ge2J_ptH_gt200=C2_GlGlH_13TeV,
+        mu_VBF_qq2Hqq_VBFtopo_jet3veto=C2_VBFH_13TeV,
+        mu_VBF_qq2Hqq_VBFtopo_jet3=C2_VBFH_13TeV,
+        mu_VBF_qq2Hqq_VH2jet=C2_VBFH_13TeV,
+        mu_VBF_qq2Hqq_rest=C2_VBFH_13TeV,
+        mu_VBF_qq2Hqq_pTjet1_gt200=C2_VBFH_13TeV,
+        mu_WH_qq2Hqq_VBFtopo_jet3veto=CW2,
+        mu_WH_qq2Hqq_VBFtopo_jet3=CW2,
+        mu_WH_qq2Hqq_VH2jet=CW2,
+        mu_WH_qq2Hqq_rest=CW2,
+        mu_WH_qq2Hqq_pTjet1_gt200=CW2,
+        mu_ZH_qq2Hqq_VBFtopo_jet3veto=CZ2,
+        mu_ZH_qq2Hqq_VBFtopo_jet3=CZ2,
+        mu_ZH_qq2Hqq_VH2jet=CZ2,
+        mu_ZH_qq2Hqq_rest=CZ2,
+        mu_ZH_qq2Hqq_pTjet1_gt200=CZ2,
+        mu_qq2Hlnu_pTV_0_150=CW2,
+        mu_qq2Hlnu_pTV_150_250_0J=CW2,
+        mu_qq2Hlnu_pTV_150_250_ge1J=CW2,
+        mu_qq2Hlnu_pTV_gt250=CW2,
+        mu_qq2Hll_pTV_0_150=CZ2,
+        mu_qq2Hll_pTV_150_250_0J=CZ2,
+        mu_qq2Hll_pTV_150_250_ge1J=CZ2,
+        mu_qq2Hll_pTV_gt25=CZ2,
+        mu_ttH=Ctop2,
+        mu_bbH=1,
+        mu_tHqb=C2_13TeV_tHjb,
+        mu_tHW=C2_13TeV_WtH,
+	      mu=BRinvC2H)"/>
+</Organization>
