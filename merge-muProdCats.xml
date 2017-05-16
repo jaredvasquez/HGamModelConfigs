@@ -1,0 +1,47 @@
+<!DOCTYPE Organization  SYSTEM 'Organization.dtd'>
+<Organization InFile="WS-HGam-STXSYield.root" OutFile="WS-HGam-muProdCats.root"
+	     ModelName="HGam-muCategories"
+       POINames="mu,mu_GGH,mu_VBF,mu_VH,mu_TTH">
+       
+  <Item Name="mu[1,-10,10]"/>
+  <Item Name="mu_GGH[1,-10,10]"/>
+  <Item Name="mu_VBF[1,-10,10]"/>
+  <Item Name="mu_VH[1,-10,10]"/>
+  <Item Name="mu_TTH[1,-10,10]"/>
+
+  <!-- PDF -->
+  <Item Name="EDIT::NEWPDF(OLDPDF,
+        mu_GGH_0J_CEN=mu_GGH,
+        mu_GGH_0J_FWD=mu_GGH,
+        mu_GGH_1J_LOW=mu_GGH,
+        mu_GGH_1J_MED=mu_GGH,
+        mu_GGH_1J_HIGH=mu_GGH,
+        mu_GGH_1J_BSM=mu_GGH,
+        mu_GGH_2J_LOW=mu_GGH,
+        mu_GGH_2J_MED=mu_GGH,
+        mu_GGH_2J_HIGH=mu_GGH,
+        mu_GGH_2J_BSM=mu_GGH,
+        mu_VBF_HjjLO_loose=mu_VBF,
+        mu_VBF_HjjLO_tight=mu_VBF,
+        mu_VBF_HjjHI_loose=mu_VBF,
+        mu_VBF_HjjHI_tight=mu_VBF,
+        mu_VHhad_loose=mu_VH,
+        mu_VHhad_tight=mu_VH,
+        mu_QQH_BSM=mu_GGH,
+        mu_VHMET_LOW=mu_VH,
+        mu_VHMET_HIGH=mu_VH,
+        mu_VHlep_LOW=mu_VH,
+        mu_VHlep_HIGH=mu_VH,
+        mu_VHdilep=mu_VH,
+        mu_tHhad_4j2b=mu_TTH,
+        mu_tHhad_4j1b=mu_TTH,
+        mu_ttHhad_BDT4=mu_TTH,
+        mu_ttHhad_BDT3=mu_TTH,
+        mu_ttHhad_BDT2=mu_TTH,
+        mu_ttHhad_BDT1=mu_TTH,
+        mu_ttHlep=mu_TTH,
+        mu_tHlep_1fwd=mu_TTH,
+        mu_tHlep_0fwd=mu_TTH,
+        mu=mu)"/>
+
+</Organization>

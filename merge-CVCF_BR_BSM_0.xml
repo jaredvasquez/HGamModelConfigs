@@ -1,0 +1,129 @@
+<!DOCTYPE Organization  SYSTEM 'Organization.dtd'>
+<!-- In the future the input workspace should be with theory uncertainties -->
+<Organization InFile="WS-HGam-STXSYield.root" 
+	      OutFile   = "WS-HGam-CVCF_BR_BSM_0.root"
+	      ModelName = "CVCF_BR_BSM_0"
+	      POINames  = "CT,CV,CF"  >
+  <!-- Need to discuss whether we correlate all fermion kappa with top, or fix them to SM -->
+  <!-- The current choice is to fix all the other fermion couplings to SM -->
+  <Item Name="CV[1,0,2]"/>	<!--All weak bosons-->
+  <Item Name="CF[1,-3,3]"/>	<!--All fermions-->
+  <Item Name="CT[1,-3,3]"/>	
+  
+  <Item Name="sum::CW(CV)"/>	<!--W-->
+  <Item Name="sum::CZ(CV)"/>	<!--W-->
+  <Item Name="sum::Cb(CF)"/>	<!--b-->
+  <Item Name="sum::Cc(CF)"/>	<!--c-->
+  <Item Name="sum::Cta(CF)"/>	<!--tau-->
+  <Item Name="prod::Cto(CF,CT)"/>	<!--t-->
+  
+  <Item Name="unit[1]"/>
+  
+  <!-- PRODUCTION -->
+  <!-- Numbers from https://twiki.cern.ch/twiki/bin/view/LHCPhysics/LHCHXSWG2KAPPA -->
+  <!-- Use 125.09 GeV as Higgs mass where possible -->
+  
+  <!-- gluglu->H, 13 TeV -->
+  <Item Name="expr::C2_GlGlH_13TeV('(@0*@0)*@3  + (@1*@1)*@4 + (@0*@1)*@5 + (@0*@2)*@6 + (@1*@2)*@7 + (@2*@2)*@8', Cto, Cb, Cc, sigma_tt_o_sigma_ggH_GlGlH_13TeV[1.040],sigma_bb_o_sigma_ggH_GlGlH_13TeV[0.0020],sigma_tb_o_sigma_ggH_GlGlH_13TeV[-0.0380],sigma_tc_o_sigma_ggH_GlGlH_13TeV[-0.0050],sigma_bc_o_sigma_ggH_GlGlH_13TeV[0.0004],sigma_cc_o_sigma_ggH_GlGlH_13TeV[0.00002])"/>
+  
+  <!-- VBF->H, 13 TeV -->
+  <!-- Number from 125 GeV. In the twiki it is demonstrated that the values are stable across mass -->
+  <Item Name="expr::C2_VBFH_13TeV('((@0*@0)*@2  + (@1*@1)*@3)', CZ, CW, CZFracVBF_13TeV[0.267],CWFracVBF_13TeV[0.733])"/>
+
+  <!-- qb->tHqb, 13 TeV -->
+  <!-- Number from 125 GeV -->
+  <Item Name="expr::C2_tHqb_13TeV('((@0*@0)*@2  + (@1*@1)*@3 + (@0*@1)*@4)', Cto, CW, sigma_tt_o_sigma_tHqb_13TeV[2.633],sigma_WW_o_sigma_tHqb_13TeV[3.578],sigma_tW_o_sigma_tHqb_13TeV[-5.211])"/>
+
+  <!-- gb->tHW, 13 TeV -->
+  <!-- Number from 125 GeV -->
+  <Item Name="expr::C2_tHW_13TeV('((@0*@0)*@2  + (@1*@1)*@3 + (@0*@1)*@4)', Cto, CW, sigma_tt_o_sigma_tHW_13TeV[2.909],sigma_WW_o_sigma_tHW_13TeV[2.310],sigma_tW_o_sigma_tHW_13TeV[-4.220])"/>
+
+  <!-- gg->ZH, 13 TeV -->
+  <Item Name="expr::C2_ggZH_13TeV('((@0*@0)*@3  + (@1*@1)*@4 + (@2*@2)*@5 + (@0*@1)*@6 + (@0*@2)*@7 + (@1*@2)*@8)', Cto, Cb, CZ, sigma_tt_o_sigma_ggZH_13TeV[0.456],sigma_bb_o_sigma_ggZH_13TeV[0.0004],sigma_ZZ_o_sigma_ggZH_13TeV[2.456], sigma_tb_o_sigma_ggZH_13TeV[0.003], sigma_tZ_o_sigma_ggZH_13TeV[-1.903], sigma_bZ_o_sigma_ggZH_13TeV[-0.011])"/>
+
+  <Item Name="expr::CW2('@0*@0',CW)"/>
+  <Item Name="expr::CZ2('@0*@0',CZ)"/>
+  <Item Name="expr::Ctop2('@0*@0',Cto)"/>
+  <Item Name="expr::Cb2('@0*@0',Cb)"/>
+  <Item Name="expr::Ctau2('@0*@0',Cta)"/>
+
+  <!-- DECAY -->
+  <!-- Use Run 1 numbers from recommendation of https://twiki.cern.ch/twiki/bin/view/LHCPhysics/LHCHXSWG2KAPPA -->
+  <!-- Cross check needed -->
+  <!-- H->gamgam -->
+  <Item Name="expr::C2_HGaGa('(@0*@0)*@4 + (@1*@1)*@5 + (@2*@2)*@6 + (@0*@1)*@7 + (@0*@2)*@8 + (@1*@2)*@9 + (@3*@3)*@10 + (@0*@3)*@11 + (@1*@3)*@12 + (@2*@3)*@13',Cto,Cb,CW,Cta,G_tt_o_G_HGaGa[0.0715],G_bb_o_G_HGaGa[0.0000],G_WW_o_G_HGaGa[1.5887],G_tb_o_G_HGaGa[-0.0018],G_tW_o_G_HGaGa[-0.6740],G_bW_o_G_HGaGa[0.0083],G_ll_o_G_HGaGa[0.0000],G_tl_o_G_HGaGa[-0.0019],G_bl_o_G_HGaGa[0.0000],G_lW_o_G_HGaGa[0.0090])"/>
+
+  <!-- H->Zgam -->
+  <Item Name="expr::C2_HZGa('(@0*@0)*@4 + (@1*@1)*@5 + (@2*@2)*@6 + (@0*@1)*@7 + (@0*@2)*@8 + (@1*@2)*@9 + (@3*@3)*@10 + (@0*@3)*@11 + (@1*@3)*@12 + (@2*@3)*@13',Cto,Cb,CW,Cta,G_tt_o_G_HZGa[0.0035],G_bb_o_G_HZGa[0.0000],G_WW_o_G_HZGa[1.1180],G_tb_o_G_HZGa[-0.0002],G_tW_o_G_HZGa[-0.1245],G_bW_o_G_HZGa[0.0032],G_ll_o_G_HZGa[0.0000],G_tl_o_G_HZGa[-0.0000],G_bl_o_G_HZGa[0.0000],G_lW_o_G_HZGa[0.0001])"/>
+  
+  <!-- H->gluglu -->
+  <Item Name="expr::C2_HGlGl('(@0*@0)*@2  + (@1*@1)*@3 + (@0*@1)*@4', Cto, Cb, G_tt_o_G_gg_HGlGl[1.1114],G_bb_o_G_gg_HGlGl[0.0116],G_tb_o_G_gg_HGlGl[-0.1229])"/>
+
+  <!-- TOTAL WIDTH -->
+  <!-- Copy BR numbers form YR4 -->
+  <!-- For ss and ttbar use the Run 1 values -->
+  <!-- Correlate ccbar with ttbar because they are all up-type -->
+  <Item Name="expr::invC2H('1/(@0*@11 + @1*@12 + @2*@13 + @3*@14 + @4*@15 + @5*@16 + @6*@17 + @7*@17 + @8*@16 + @9*@18 + @10*@18)', BR_H_gluglu_SM[0.08180],BR_H_gamgam_SM[0.00227],BR_H_Zgam_SM[0.001541],BR_H_WW_SM[0.2152],BR_H_ZZ_SM[0.02641],BR_H_bb_SM[0.5809],BR_H_tautau_SM[0.06256],BR_H_mumu_SM[0.0002171],BR_H_ssbar_SM[0.0004],BR_H_ccbar_SM[0.02884],BR_H_ttbar_SM[0.0000], C2_HGlGl, C2_HGaGa, C2_HZGa, CW2, CZ2, Cb2, Ctau2, Ctop2)"/>
+
+  <Item Name="prod::mod_tHqb( C2_tHqb_13TeV, mu_tHqb[1], mu_tH[1], mu_top[1] )"/>
+  <Item Name="prod::mod_tHW( C2_tHW_13TeV, mu_tHW[1], mu_tH[1], mu_top[1] )"/>
+  <Item Name="prod::mod_ttH( Ctop2, mu_ttH[1], mu_top[1] )"/>
+  
+  <!-- PDF -->
+  <Item Name="EDIT::NEWPDF(OLDPDF,
+        mu_gg2H_0J=C2_GlGlH_13TeV,
+        mu_gg2H_1J_ptH_0_60=C2_GlGlH_13TeV,
+	      mu_gg2H_1J_ptH_60_120=C2_GlGlH_13TeV,
+	      mu_gg2H_1J_ptH_120_200=C2_GlGlH_13TeV,
+	      mu_gg2H_1J_ptH_gt200=C2_GlGlH_13TeV,
+        mu_gg2H_ge2J_ptH_0_60=C2_GlGlH_13TeV,
+	      mu_gg2H_ge2J_ptH_60_120=C2_GlGlH_13TeV,
+	      mu_gg2H_ge2J_ptH_120_200=C2_GlGlH_13TeV,
+	      mu_gg2H_ge2J_ptH_gt200=C2_GlGlH_13TeV,
+        mu_gg2H_VBFtopo_jet3veto=C2_GlGlH_13TeV,
+	      mu_gg2H_VBFtopo_jet3=C2_GlGlH_13TeV,
+        mu_VBF_qq2Hqq_VBFtopo_jet3veto=C2_VBFH_13TeV,
+	      mu_VBF_qq2Hqq_VBFtopo_jet3=C2_VBFH_13TeV,
+        mu_VBF_qq2Hqq_VH2jet=C2_VBFH_13TeV,
+	      mu_VBF_qq2Hqq_rest=C2_VBFH_13TeV,
+        mu_VBF_qq2Hqq_pTjet1_gt200=C2_VBFH_13TeV,
+        mu_qq2Hlnu_pTV_0_150=CW2,
+	      mu_qq2Hlnu_pTV_150_250_0J=CW2,
+	      mu_qq2Hlnu_pTV_150_250_ge1J=CW2,
+	      mu_qq2Hlnu_pTV_gt250=CW2,
+        mu_qq2Hll_pTV_0_150=CZ2,
+	      mu_qq2Hll_pTV_150_250_0J=CZ2,
+	      mu_qq2Hll_pTV_150_250_ge1J=CZ2,
+	      mu_qq2Hll_pTV_gt250=CZ2,
+        mu_WH_qq2Hqq_VH2jet=CW2,
+	      mu_WH_qq2Hqq_rest=CW2,
+        mu_WH_qq2Hqq_VBFtopo_jet3veto=CW2,
+	      mu_WH_qq2Hqq_VBFtopo_jet3=CW2,
+        mu_WH_qq2Hqq_pTjet1_gt200=CW2,
+        mu_ZH_qq2Hqq_VH2jet=CZ2,
+	      mu_ZH_qq2Hqq_rest=CZ2,
+        mu_ZH_qq2Hqq_VBFtopo_jet3veto=CZ2,
+	      mu_ZH_qq2Hqq_VBFtopo_jet3=CZ2,
+        mu_ZH_qq2Hqq_pTjet1_gt200=CZ2,
+        mu_gg2Hll_pTV_0_150=C2_ggZH_13TeV,
+        mu_gg2Hll_pTV_gt150_0J=C2_ggZH_13TeV,
+        mu_gg2Hll_pTV_gt150_ge1J=C2_ggZH_13TeV,
+        mu_ggZH_gg2H_VBFtopo_jet3veto=C2_ggZH_13TeV,
+        mu_ggZH_gg2H_VBFtopo_jet3=C2_ggZH_13TeV,
+        mu_ggZH_gg2H_0J=C2_ggZH_13TeV,
+        mu_ggZH_gg2H_1J_ptH_0_60=C2_ggZH_13TeV,
+        mu_ggZH_gg2H_1J_ptH_60_120=C2_ggZH_13TeV,
+        mu_ggZH_gg2H_1J_ptH_120_200=C2_ggZH_13TeV,
+        mu_ggZH_gg2H_1J_ptH_gt200=C2_ggZH_13TeV,
+        mu_ggZH_gg2H_ge2J_ptH_0_60=C2_ggZH_13TeV,
+        mu_ggZH_gg2H_ge2J_ptH_60_120=C2_ggZH_13TeV,
+        mu_ggZH_gg2H_ge2J_ptH_120_200=C2_ggZH_13TeV,
+        mu_ggZH_gg2H_ge2J_ptH_gt200=C2_ggZH_13TeV,
+        mu_ttH=mod_ttH,
+        mu_bbH=Cb2,
+        mu_tHqb=mod_tHqb,
+        mu_tHW=mod_tHW,
+        mu_BR_yy=C2_HGaGa,
+        mu=invC2H
+	      )"/>
+</Organization>

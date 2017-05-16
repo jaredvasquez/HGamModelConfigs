@@ -1,6 +1,7 @@
 <!DOCTYPE Organization  SYSTEM 'Organization.dtd'>
-<Organization InFile="WS-HGam-STXSYield.root" OutFile="WS-HGam-muLegacy.root"
-	     ModelName="HGam-muLegacy" POINames="mu,mu_ggH,mu_VBF,mu_WH,mu_ZH,mu_VH,mu_top">
+<Organization InFile="WS-HGam-STXSProdXS.root" OutFile="WS-HGam-ProdXS.root"
+	     ModelName="HGam-ProdXS"
+       POINames="mu,mu_ggH,mu_VBF,mu_WH,mu_ZH,mu_VH,mu_top">
 
   <Item Name="mu_ggH[1,-5,5]"/>
   <Item Name="mu_VBF[1,-5,5]"/>
@@ -10,10 +11,10 @@
   <Item Name="prod::mu_WHVH( mu_VH, mu_WH )"/>
   <Item Name="prod::mu_ZHVH( mu_VH, mu_ZH )"/>
   <Item Name="mu_ttH[1]"/>
-  <Item Name="mu_tH[1]"/>
-  <Item Name="mu_tHW[1]"/>
-  <Item Name="mu_tHqb[1]"/>
   <Item Name="mu_top[1,-5,5]"/>
+  <Item Name="mu_tH[1]"/>
+  <Item Name="mu_tHqb[1]"/>
+  <Item Name="mu_tHW[1]"/>
   <Item Name="prod::mu_top_ttH( mu_top, mu_ttH )"/>
   <Item Name="prod::mu_top_tHqb( mu_top, mu_tH, mu_tHqb )"/>
   <Item Name="prod::mu_top_tHW( mu_top, mu_tH, mu_tHW )"/>

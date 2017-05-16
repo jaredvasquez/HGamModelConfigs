@@ -1,0 +1,64 @@
+<!DOCTYPE Organization  SYSTEM 'Organization.dtd'>
+<Organization InFile="WS-HGam-STXSYield.root" OutFile="WS-HGam-muCategories.root"
+	     ModelName="HGam-muCategories"
+       POINames="mu,mu_GGH_0J_CEN,mu_GGH_0J_FWD,mu_GGH_1J_LOW,mu_GGH_1J_MED,mu_GGH_1J_HIGH,mu_GGH_1J_BSM,mu_GGH_2J_LOW,mu_GGH_2J_MED,mu_GGH_2J_HIGH,mu_GGH_2J_BSM,mu_VBF_HjjLO,mu_VBF_HjjHI,mu_VHhad,mu_QQH_BSM,mu_VHMET,mu_VHleps,mu_ttHhad,mu_ttHlep">
+       
+  <Item Name="mu[1,-10,10]"/>
+  <Item Name="mu_GGH_0J_CEN[1,-10,10]"/>
+  <Item Name="mu_GGH_0J_FWD[1,-10,10]"/>
+  <Item Name="mu_GGH_1J_LOW[1,-10,10]"/>
+  <Item Name="mu_GGH_1J_MED[1,-10,10]"/>
+  <Item Name="mu_GGH_1J_HIGH[1,-10,10]"/>
+  <Item Name="mu_GGH_1J_BSM[1,-10,10]"/>
+  <Item Name="mu_GGH_2J_LOW[1,-10,10]"/>
+  <Item Name="mu_GGH_2J_MED[1,-10,10]"/>
+  <Item Name="mu_GGH_2J_HIGH[1,-10,10]"/>
+  <Item Name="mu_GGH_2J_BSM[1,-10,10]"/>
+  <Item Name="mu_VBF_HjjLO[1,-10,10]"/>
+  <Item Name="mu_VBF_HjjHI[1,-10,10]"/>
+  <Item Name="mu_VHhad[1,-10,10]"/>
+  <Item Name="mu_QQH_BSM[1,-10,10]"/>
+  <Item Name="mu_VHMET[1,-10,10]"/>
+  <Item Name="mu_VHleps[1,-10,10]"/>
+  <Item Name="mu_ttHhad[1,-10,10]"/>
+  <Item Name="mu_ttHlep[1,-10,10]"/>
+  <!--
+  <Item Name="mu_VHdilep[1,-10,10]"/>
+  -->
+
+  <!-- PDF -->
+  <Item Name="EDIT::NEWPDF(OLDPDF,
+        mu_GGH_0J_CEN=mu_GGH_0J_CEN,
+        mu_GGH_0J_FWD=mu_GGH_0J_FWD,
+        mu_GGH_1J_LOW=mu_GGH_1J_LOW,
+        mu_GGH_1J_MED=mu_GGH_1J_MED,
+        mu_GGH_1J_HIGH=mu_GGH_1J_HIGH,
+        mu_GGH_1J_BSM=mu_GGH_1J_BSM,
+        mu_GGH_2J_LOW=mu_GGH_2J_LOW,
+        mu_GGH_2J_MED=mu_GGH_2J_MED,
+        mu_GGH_2J_HIGH=mu_GGH_2J_HIGH,
+        mu_GGH_2J_BSM=mu_GGH_2J_BSM,
+        mu_VBF_HjjLO_loose=mu_VBF_HjjLO,
+        mu_VBF_HjjLO_tight=mu_VBF_HjjLO,
+        mu_VBF_HjjHI_loose=mu_VBF_HjjHI,
+        mu_VBF_HjjHI_tight=mu_VBF_HjjHI,
+        mu_VHhad_loose=mu_VHhad,
+        mu_VHhad_tight=mu_VHhad,
+        mu_QQH_BSM=mu_QQH_BSM,
+        mu_VHMET_LOW=mu_VHMET,
+        mu_VHMET_HIGH=mu_VHMET,
+        mu_VHlep_LOW=mu_VHleps,
+        mu_VHlep_HIGH=mu_VHleps,
+        mu_VHdilep=mu_VHleps,
+        mu_tHhad_4j2b=mu_ttHhad,
+        mu_tHhad_4j1b=mu_ttHhad,
+        mu_ttHhad_BDT4=mu_ttHhad,
+        mu_ttHhad_BDT3=mu_ttHhad,
+        mu_ttHhad_BDT2=mu_ttHhad,
+        mu_ttHhad_BDT1=mu_ttHhad,
+        mu_ttHlep=mu_ttHlep,
+        mu_tHlep_1fwd=mu_ttHlep,
+        mu_tHlep_0fwd=mu_ttHlep,
+        mu=mu)"/>
+
+</Organization>

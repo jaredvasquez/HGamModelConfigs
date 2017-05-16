@@ -1,0 +1,65 @@
+<!DOCTYPE Organization  SYSTEM 'Organization.dtd'>
+<Organization InFile="WS-HGam-STXSYield.root" OutFile="WS-HGam-mu2D.root"
+	     ModelName="HGam-muLegacy"
+       POINames="mu,mu_qq,mu_gg">
+
+  <Item Name="mu[1]"/>
+  <Item Name="mu_gg[1,-10,10]"/>
+  <Item Name="mu_qq[1,-10,10]"/>
+
+  <!-- PDF -->
+  <Item Name="EDIT::NEWPDF(OLDPDF,
+        mu_gg2H_VBFtopo_jet3veto=mu_gg,
+        mu_gg2H_VBFtopo_jet3=mu_gg,
+        mu_gg2H_0J=mu_gg,
+        mu_gg2H_1J_ptH_0_60=mu_gg,
+        mu_gg2H_1J_ptH_60_120=mu_gg,
+        mu_gg2H_1J_ptH_120_200=mu_gg,
+        mu_gg2H_1J_ptH_gt200=mu_gg,
+        mu_gg2H_ge2J_ptH_0_60=mu_gg,
+        mu_gg2H_ge2J_ptH_60_120=mu_gg,
+        mu_gg2H_ge2J_ptH_120_200=mu_gg,
+        mu_gg2H_ge2J_ptH_gt200=mu_gg,
+        mu_VBF_qq2Hqq_VBFtopo_jet3veto=mu_qq,
+        mu_VBF_qq2Hqq_VBFtopo_jet3=mu_qq,
+        mu_VBF_qq2Hqq_VH2jet=mu_qq,
+        mu_VBF_qq2Hqq_rest=mu_qq,
+        mu_VBF_qq2Hqq_pTjet1_gt200=mu_qq,
+        mu_WH_qq2Hqq_VBFtopo_jet3veto=mu_qq,
+        mu_WH_qq2Hqq_VBFtopo_jet3=mu_qq,
+        mu_WH_qq2Hqq_VH2jet=mu_qq,
+        mu_WH_qq2Hqq_rest=mu_qq,
+        mu_WH_qq2Hqq_pTjet1_gt200=mu_qq,
+        mu_ZH_qq2Hqq_VBFtopo_jet3veto=mu_qq,
+        mu_ZH_qq2Hqq_VBFtopo_jet3=mu_qq,
+        mu_ZH_qq2Hqq_VH2jet=mu_qq,
+        mu_ZH_qq2Hqq_rest=mu_qq,
+        mu_ZH_qq2Hqq_pTjet1_gt200=mu_qq,
+        mu_qq2Hlnu_pTV_0_150=mu_qq,
+        mu_qq2Hlnu_pTV_150_250_0J=mu_qq,
+        mu_qq2Hlnu_pTV_150_250_ge1J=mu_qq,
+        mu_qq2Hlnu_pTV_gt250=mu_qq,
+        mu_qq2Hll_pTV_0_150=mu_qq,
+        mu_qq2Hll_pTV_150_250_0J=mu_qq,
+        mu_qq2Hll_pTV_150_250_ge1J=mu_qq,
+        mu_qq2Hll_pTV_gt250=mu_qq,
+        mu_gg2Hll_pTV_0_150=mu_gg,
+        mu_gg2Hll_pTV_gt150_0J=mu_gg,
+        mu_gg2Hll_pTV_gt150_ge1J=mu_gg,
+        mu_ggZH_gg2H_VBFtopo_jet3veto=mu_gg,
+        mu_ggZH_gg2H_VBFtopo_jet3=mu_gg,
+        mu_ggZH_gg2H_0J=mu_gg,
+        mu_ggZH_gg2H_1J_ptH_0_60=mu_gg,
+        mu_ggZH_gg2H_1J_ptH_60_120=mu_gg,
+        mu_ggZH_gg2H_1J_ptH_120_200=mu_gg,
+        mu_ggZH_gg2H_1J_ptH_gt200=mu_gg,
+        mu_ggZH_gg2H_ge2J_ptH_0_60=mu_gg,
+        mu_ggZH_gg2H_ge2J_ptH_60_120=mu_gg,
+        mu_ggZH_gg2H_ge2J_ptH_120_200=mu_gg,
+        mu_ggZH_gg2H_ge2J_ptH_gt200=mu_gg,
+        mu_ttH=mu_gg,
+        mu_bbH=mu_gg,
+        mu_tHqb=mu_gg,
+        mu_tHW=mu_gg,
+        mu=mu)"/>
+</Organization>

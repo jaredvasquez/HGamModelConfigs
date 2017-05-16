@@ -1,23 +1,22 @@
 <!DOCTYPE Organization  SYSTEM 'Organization.dtd'>
 <Organization InFile="WS-HGam-STXSYield.root" OutFile="WS-HGam-muRatios.root"
 	     ModelName="HGam-muRatios"
-       POINames="mu,mu_ggH,muRatio_VBF,muRatio_WH,muRatio_ZH,muRatio_VH,muRatio_ttH,muRatio_bbH,muRatio_tH">
+       POINames="mu,mu_ggH,muRatio_VBF,muRatio_WH,muRatio_ZH,muRatio_VH,muRatio_top">
 
   <Item Name="mu_ggH[1,-5,5]"/>
   <Item Name="muRatio_VBF[1,-5,5]"/>
   <Item Name="muRatio_VH[1,-5,5]"/>
   <Item Name="muRatio_WH[1,-5,5]"/>
   <Item Name="muRatio_ZH[1,-5,5]"/>
-  <Item Name="muRatio_ttH[1,-5,5]"/>
-  <Item Name="muRatio_bbH[1]"/>
+  <Item Name="muRatio_top[1,-5,5]"/>
+  <Item Name="muRatio_ttH[1]"/>
   <Item Name="muRatio_tH[1]"/>
   
   <Item Name="prod::muRatio_VBF_x_ggH( muRatio_VBF, mu_ggH )"/>
   <Item Name="prod::muRatio_WH_x_ggH(  muRatio_VH,  muRatio_WH, mu_ggH )"/>
   <Item Name="prod::muRatio_ZH_x_ggH(  muRatio_VH,  muRatio_ZH, mu_ggH )"/>
-  <Item Name="prod::muRatio_ttH_x_ggH( muRatio_ttH, mu_ggH )"/>
-  <Item Name="prod::muRatio_bbH_x_ggH( muRatio_bbH, mu_ggH )"/>
-  <Item Name="prod::muRatio_tH_x_ggH(  muRatio_tH,  mu_ggH )"/>
+  <Item Name="prod::muRatio_ttH_x_ggH( muRatio_top, muRatio_ttH, mu_ggH )"/>
+  <Item Name="prod::muRatio_tH_x_ggH(  muRatio_top, muRatio_tH,  mu_ggH )"/>
 
   <!-- PDF -->
   <Item Name="EDIT::NEWPDF(OLDPDF,
@@ -54,12 +53,23 @@
         mu_qq2Hll_pTV_0_150=muRatio_ZH_x_ggH,
         mu_qq2Hll_pTV_150_250_0J=muRatio_ZH_x_ggH,
         mu_qq2Hll_pTV_150_250_ge1J=muRatio_ZH_x_ggH,
-        mu_qq2Hll_pTV_gt25=muRatio_ZH_x_ggH,
-        gg2Hll_pTV_0_150=muRatio_ZH_x_ggH,
-        gg2Hll_pTV_gt150_0J=muRatio_ZH_x_ggH,
-        gg2Hll_pTV_gt150_ge1J=muRatio_ZH_x_ggH,
+        mu_qq2Hll_pTV_gt250=muRatio_ZH_x_ggH,
+        mu_gg2Hll_pTV_0_150=muRatio_ZH_x_ggH,
+        mu_gg2Hll_pTV_gt150_0J=muRatio_ZH_x_ggH,
+        mu_gg2Hll_pTV_gt150_ge1J=muRatio_ZH_x_ggH,
+        mu_ggZH_gg2H_VBFtopo_jet3veto=muRatio_ZH_x_ggH,
+        mu_ggZH_gg2H_VBFtopo_jet3=muRatio_ZH_x_ggH,
+        mu_ggZH_gg2H_0J=muRatio_ZH_x_ggH,
+        mu_ggZH_gg2H_1J_ptH_0_60=muRatio_ZH_x_ggH,
+        mu_ggZH_gg2H_1J_ptH_60_120=muRatio_ZH_x_ggH,
+        mu_ggZH_gg2H_1J_ptH_120_200=muRatio_ZH_x_ggH,
+        mu_ggZH_gg2H_1J_ptH_gt200=muRatio_ZH_x_ggH,
+        mu_ggZH_gg2H_ge2J_ptH_0_60=muRatio_ZH_x_ggH,
+        mu_ggZH_gg2H_ge2J_ptH_60_120=muRatio_ZH_x_ggH,
+        mu_ggZH_gg2H_ge2J_ptH_120_200=muRatio_ZH_x_ggH,
+        mu_ggZH_gg2H_ge2J_ptH_gt200=muRatio_ZH_x_ggH,
         mu_ttH=muRatio_ttH_x_ggH,
-        mu_bbH=muRatio_bbH_x_ggH,
+        mu_bbH=mu_ggH,
         mu_tHqb=muRatio_tH_x_ggH,
         mu_tHW=muRatio_tH_x_ggH,
         mu=mu)"/>
