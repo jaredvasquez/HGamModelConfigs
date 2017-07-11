@@ -1,0 +1,94 @@
+<!DOCTYPE Organization  SYSTEM 'Organization.dtd'>
+<!-- In the future the input workspace should be with theory uncertainties -->
+<Organization 
+        InFile    = "WS-HGam-STXSYield.root" 
+	      OutFile   = "WS-HGam-RgyhRVgRFg.root"
+	      ModelName = "RgyhRVgRFg"
+	      POINames  = "Rgyh,RVg,RFg"  >
+  <!-- Need to discuss whether we correlate all fermion kappa with top, or fix them to SM -->
+  <!-- The current choice is to fix all the other fermion couplings to SM -->
+
+  <Item Name="Rgyh[1,-3,3]"/>
+  <Item Name="RVg[1,-2,2]"/>
+  <Item Name="RFg[1,-2,2]"/>
+
+  <Item Name="expr::Rggh('@0*@0',Rgyh)"/>
+  <Item Name="expr::RVVh('@0*@0*@1*@1',Rgyh,RVg)"/>
+  <Item Name="expr::RFFh('@0*@0*@1*@1',Rgyh,RFg)"/>
+  <Item Name="expr::RFVh('@0*@0*@1*@2',Rgyh,RFg,RVg)"/>
+
+  <Item Name="unit[1]"/>
+
+  <!-- PRODUCTION -->
+  <!-- Numbers from https://twiki.cern.ch/twiki/bin/view/LHCPhysics/LHCHXSWG2KAPPA -->
+  <!-- Use 125.09 GeV as Higgs mass where possible -->
+
+  <!-- qb->tHqb, 13 TeV -->
+  <!-- Number from 125 GeV -->
+  <Item Name="expr::C2_tHqb_13TeV('(@0*@3  + @1*@4 + @2*@5)', RFFh, RVVh, RFVh, sigma_tt_o_sigma_tHqb_13TeV[2.633],sigma_WW_o_sigma_tHqb_13TeV[3.578],sigma_tW_o_sigma_tHqb_13TeV[-5.211])"/>
+
+  <!-- gb->tHW, 13 TeV -->
+  <!-- Number from 125 GeV -->
+  <Item Name="expr::C2_tHW_13TeV('(@0*@3  + @1*@4 + @2*@5)', RFFh, RVVh, RFVh, sigma_tt_o_sigma_tHW_13TeV[2.909],sigma_WW_o_sigma_tHW_13TeV[2.310],sigma_tW_o_sigma_tHW_13TeV[-4.220])"/>
+
+  <!-- gg->ZH, 13 TeV -->
+  <Item Name="expr::C2_ggZH_13TeV('(@0*@3  + @0*@4 + @1*@5 + @0*@6 + @2*@7 + @2*@8)', RFFh, RVVh, RFVh, sigma_tt_o_sigma_ggZH_13TeV[0.456],sigma_bb_o_sigma_ggZH_13TeV[0.0004],sigma_ZZ_o_sigma_ggZH_13TeV[2.456], sigma_tb_o_sigma_ggZH_13TeV[0.003], sigma_tZ_o_sigma_ggZH_13TeV[-1.903], sigma_bZ_o_sigma_ggZH_13TeV[-0.011])"/>
+
+  <!-- PDF -->
+  <Item Name="EDIT::NEWPDF(OLDPDF,
+                  mu_gg2H_0J=Rggh,
+                  mu_gg2H_1J_ptH_0_60=Rggh,
+                  mu_gg2H_1J_ptH_60_120=Rggh,
+                  mu_gg2H_1J_ptH_120_200=Rggh,
+                  mu_gg2H_1J_ptH_gt200=Rggh,
+                  mu_gg2H_ge2J_ptH_0_60=Rggh,
+                  mu_gg2H_ge2J_ptH_60_120=Rggh,
+                  mu_gg2H_ge2J_ptH_120_200=Rggh,
+                  mu_gg2H_ge2J_ptH_gt200=Rggh,
+                  mu_gg2H_VBFtopo_jet3veto=Rggh,
+                  mu_gg2H_VBFtopo_jet3=Rggh,
+                  mu_VBF_qq2Hqq_VBFtopo_jet3veto=RVVh,
+                  mu_VBF_qq2Hqq_VBFtopo_jet3=RVVh,
+                  mu_VBF_qq2Hqq_VH2jet=RVVh,
+                  mu_VBF_qq2Hqq_rest=RVVh,
+                  mu_VBF_qq2Hqq_pTjet1_gt200=RVVh,
+                  mu_qq2Hlnu_pTV_0_150=RVVh,
+                  mu_qq2Hlnu_pTV_150_250_0J=RVVh,
+                  mu_qq2Hlnu_pTV_150_250_ge1J=RVVh,
+                  mu_qq2Hlnu_pTV_gt250=RVVh,
+                  mu_qq2Hll_pTV_0_150=RVVh,
+                  mu_qq2Hll_pTV_150_250_0J=RVVh,
+                  mu_qq2Hll_pTV_150_250_ge1J=RVVh,
+                  mu_qq2Hll_pTV_gt250=RVVh,
+                  mu_WH_qq2Hqq_VH2jet=RVVh,
+                  mu_WH_qq2Hqq_rest=RVVh,
+                  mu_WH_qq2Hqq_VBFtopo_jet3veto=RVVh,
+                  mu_WH_qq2Hqq_VBFtopo_jet3=RVVh,
+                  mu_WH_qq2Hqq_pTjet1_gt200=RVVh,
+                  mu_ZH_qq2Hqq_VH2jet=RVVh,
+                  mu_ZH_qq2Hqq_rest=RVVh,
+                  mu_ZH_qq2Hqq_VBFtopo_jet3veto=RVVh,
+                  mu_ZH_qq2Hqq_VBFtopo_jet3=RVVh,
+                  mu_ZH_qq2Hqq_pTjet1_gt200=RVVh,
+                  mu_ggZH_gg2H_0J=C2_ggZH_13TeV,
+                  mu_ggZH_gg2H_1J_ptH_0_60=C2_ggZH_13TeV,
+                  mu_ggZH_gg2H_1J_ptH_60_120=C2_ggZH_13TeV,
+                  mu_ggZH_gg2H_1J_ptH_120_200=C2_ggZH_13TeV,
+                  mu_ggZH_gg2H_1J_ptH_gt200=C2_ggZH_13TeV,
+                  mu_ggZH_gg2H_ge2J_ptH_0_60=C2_ggZH_13TeV,
+                  mu_ggZH_gg2H_ge2J_ptH_60_120=C2_ggZH_13TeV,
+                  mu_ggZH_gg2H_ge2J_ptH_120_200=C2_ggZH_13TeV,
+                  mu_ggZH_gg2H_ge2J_ptH_gt200=C2_ggZH_13TeV,
+                  mu_ggZH_gg2H_VBFtopo_jet3veto=C2_ggZH_13TeV,
+                  mu_ggZH_gg2H_VBFtopo_jet3=C2_ggZH_13TeV,
+                  mu_gg2Hll_pTV_0_150=C2_ggZH_13TeV,
+                  mu_gg2Hll_pTV_gt150_0J=C2_ggZH_13TeV,
+                  mu_gg2Hll_pTV_gt150_ge1J=C2_ggZH_13TeV,
+                  mu_ttH=RFFh,
+                  mu_bbH=RFFh,
+                  mu_tHqb=C2_tHqb_13TeV,
+                  mu_tHW=C2_tHW_13TeV,
+                  mu_BR_yy=unit,
+                  mu=unit
+	      )"/>
+</Organization>
